@@ -1,0 +1,60 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   ft_memmove.c                                       :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: tle-dref <tle-dref@student.42.fr>          +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2024/10/14 21:05:34 by tle-dref          #+#    #+#             */
+/*   Updated: 2024/10/14 21:05:34 by tle-dref         ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
+#include "libft.h"
+
+void	*ft_memmove(void *dest, const void *src, size_t n)
+{
+	size_t i;
+	i = 0;
+	unsigned char *d = dest;
+	const unsigned char *s = src;
+	if (d < s || d >= s + n)
+	// si le pointeur src est avant le dest ou assez plus loin on copie normalement
+	{
+		while (i < n)
+		{
+			d[i] = s[i];
+			i++;
+		}
+	}
+	else
+	{
+		d += n;
+		s += n;
+		i = n;
+		while (i > 0)
+		{
+			d[i] = s[i];
+			i--;
+		}
+	}
+	return (dest);
+}
+
+/*
+#include <stdio.h>
+#include <string.h>
+
+
+
+
+
+int	main(void)
+{
+	char str[] = "Bonjour le monde";
+
+	ft_memmove(str + 8, str, 7); // Le chevauchement est ici
+
+	printf("Resultat: %s\n", str);
+	return (0);
+}*/
