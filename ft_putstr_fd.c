@@ -6,7 +6,7 @@
 /*   By: tle-dref <tle-dref@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/10/15 14:00:23 by tle-dref          #+#    #+#             */
-/*   Updated: 2024/10/15 14:00:27 by tle-dref         ###   ########.fr       */
+/*   Updated: 2024/10/15 14:26:30 by tle-dref         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,12 +14,9 @@
 
 void	ft_putstr_fd(char *s, int fd)
 {
-	int	i;
-
-	i = 0;
-	while (s[i])
+	while (*s)
 	{
-		write(fd, s[i], 1);
-		i++;
+		write(fd, s, 1);
+		s++;
 	}
 }
