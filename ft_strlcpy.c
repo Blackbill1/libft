@@ -14,19 +14,20 @@
 
 int	ft_strlcpy(char *dest, const char *src, size_t size)
 {
-	size_t i;
-	int lenSrc;
-	lenSrc = 0;
+	size_t	i;
+	int		lensrc;
+
+	lensrc = 0;
 	i = 0;
-	while (src[lenSrc] != '\0')
-		lenSrc++;
+	while (src[lensrc] != '\0')
+		lensrc++;
 	while (i < size - 1 && src[i] != '\0')
 	{
 		dest[i] = src[i];
 		i++;
 	}
 	dest[i] = '\0';
-	return (lenSrc);
+	return (lensrc);
 }
 
 /*

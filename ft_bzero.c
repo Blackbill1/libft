@@ -13,30 +13,29 @@
 
 void	ft_bzero(void *s, size_t n)
 {
-	size_t i;
+	size_t			i;
+	unsigned char	*p;
+
 	i = 0;
-	unsigned char *p = s;
+	p = s;
 	while (i < n)
 	{
 		p[i] = 0;
 		i++;
 	}
 }
+
 /*
 #include <stdio.h>
-
-
-
 
 int	main(void)
 {
 	char str[10] = "Bonjour";
 	printf("Avant bzero: %s\n", str);
 
-	// Remplir les 10 premiers octets de 'str' avec des zéros
 	ft_bzero(str, sizeof(str));
 
-	printf("Apres bzero: %s\n", str); // Affiche une chaîne vide
+	printf("Apres bzero: %s\n", str); 
 
 	return (0);
 }

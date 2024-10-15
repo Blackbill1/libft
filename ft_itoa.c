@@ -1,8 +1,20 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   ft_itoa.c                                          :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: tle-dref <tle-dref@student.42.fr>          +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2024/10/15 12:30:12 by tle-dref          #+#    #+#             */
+/*   Updated: 2024/10/15 12:31:22 by tle-dref         ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
 #include "libft.h"
 
 static int	ft_len(int n)
 {
-	int len;
+	int	len;
 
 	len = 0;
 	if (n < 0)
@@ -11,14 +23,15 @@ static int	ft_len(int n)
 		len += 1;
 	}
 	if (n == 0)
-		return 1;
-	while(n >= 10)
+		return (1);
+	while (n >= 10)
 	{
 		n /= 10;
 		len ++;
 	}
 	return (len);
 }
+
 char	*ft_itoa(int n)
 {
 	int		i;
@@ -38,7 +51,7 @@ char	*ft_itoa(int n)
 		n = -n;
 	}
 	if (n == -2147483648)
-		return "-2147483648";
+		return ("-2147483648");
 	while (n != 0)
 	{
 		res[i--] = (n % 10) + '0';
@@ -47,7 +60,7 @@ char	*ft_itoa(int n)
 	res[len + 1] = '\0';
 	return (res);
 }
-
+/*
 #include <stdio.h>
 int main(void)
 {
@@ -55,3 +68,4 @@ int main(void)
 	char *res = ft_itoa(n);
 	printf("%s", res);
 }
+*/

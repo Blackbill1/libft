@@ -14,29 +14,20 @@
 
 void	*ft_memmove(void *dest, const void *src, size_t n)
 {
-	size_t i;
-	i = 0;
-	unsigned char *d = dest;
-	const unsigned char *s = src;
-	if (d < s || d >= s + n)
-	// si le pointeur src est avant le dest ou assez plus loin on copie normalement
-	{
-		while (i < n)
-		{
-			d[i] = s[i];
-			i++;
-		}
-	}
+	unsigned char		*d;
+	const unsigned char	*s;
+
+	d = (unsigned char *)dest;
+	s = (const unsigned char *)src;
+	if (d < s)
+		while (n--)
+			*d++ = *s++;
 	else
 	{
 		d += n;
 		s += n;
-		i = n;
-		while (i > 0)
-		{
-			d[i] = s[i];
-			i--;
-		}
+		while (n--)
+			*--d = *--s;
 	}
 	return (dest);
 }
@@ -44,10 +35,6 @@ void	*ft_memmove(void *dest, const void *src, size_t n)
 /*
 #include <stdio.h>
 #include <string.h>
-
-
-
-
 
 int	main(void)
 {
@@ -57,4 +44,5 @@ int	main(void)
 
 	printf("Resultat: %s\n", str);
 	return (0);
-}*/
+}
+*/

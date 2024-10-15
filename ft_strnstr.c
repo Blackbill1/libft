@@ -14,26 +14,25 @@
 
 char	*strnstr(const char *big, const char *little, size_t len)
 {
-	size_t i;
-	int j;
-	int lenS;
-	lenS = ft_strlen((char *)little);
+	size_t	i;
+	int		j;
+	int		lens;
 
+	lens = ft_strlen((char *)little);
 	i = 0;
 	j = 0;
 	while (i < len)
 	{
 		if (big[i] == little[0])
 		{
-			while (j < lenS)
+			while (j < lens)
 			{
 				if (big[i + j] != little[j])
 					break ;
 				j++;
 			}
 		}
-
-		if (j == lenS)
+		if (j == lens)
 			return ((char *)(big + i));
 		i++;
 		j = 0;

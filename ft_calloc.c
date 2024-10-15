@@ -14,17 +14,15 @@
 
 void	*calloc(size_t nmemb, size_t size)
 {
-	void *ptr;
-	int finalLen;
+	void	*ptr;
+	int		finallen;
 
-	finalLen = nmemb * size;
-	if (nmemb != 0 && finalLen / nmemb != size)
+	finallen = nmemb * size;
+	if (nmemb != 0 && finallen / nmemb != size)
 		return (NULL);
-	ptr = malloc(finalLen);
-
+	ptr = malloc(finallen);
 	if (!ptr)
 		return (NULL);
-
-	ft_bzero(ptr, finalLen);
+	ft_bzero(ptr, finallen);
 	return (ptr);
 }
