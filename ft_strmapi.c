@@ -6,7 +6,7 @@
 /*   By: tle-dref <tle-dref@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/10/15 14:05:08 by tle-dref          #+#    #+#             */
-/*   Updated: 2024/10/15 14:05:11 by tle-dref         ###   ########.fr       */
+/*   Updated: 2024/10/15 22:51:08 by tle-dref         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,7 +17,8 @@ char	*ft_strmapi(char const *s, char (*f)(unsigned int, char))
 	char			*res;
 	unsigned int	i;
 
-	res = malloc(ft_strlen((char *)s) * sizeof(char));
+	i = 0;
+	res = malloc(ft_strlen((char *)s) * sizeof(char) + 1);
 	if (!res)
 		return (NULL);
 	while (s[i])

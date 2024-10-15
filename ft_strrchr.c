@@ -17,15 +17,15 @@ char	*ft_strrchr(const char *s, int c)
 	int	i;
 	int	last;
 
-	last = 0;
+	last = -1;
 	i = 0;
 	while (s[i] != '\0')
 	{
-		if (s[i] == c)
+		if (s[i] == (unsigned char)c)
 			last = i;
 		i++;
 	}
-	if (last != 0)
+	if (last != -1)
 		return ((char *)s + last);
 	if (c == '\0')
 		return ((char *)s + i);
@@ -35,14 +35,12 @@ char	*ft_strrchr(const char *s, int c)
 /*
 #include <stdio.h>
 
-
-
 int	main(void)
 {
-	char str[] = "Hello, World!";
-	char ch = 'o';
+	char str[] = "abbbbbbbb";
+	char ch = 'a';
 
-	char *result = ft_strrchr(str, 'o');
+	char *result = ft_strrchr(str, 'a');
 
 	if (result != 0)
 	{

@@ -9,10 +9,9 @@
 /*   Updated: 2024/10/14 20:55:30 by tle-dref         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
-
 #include "libft.h"
 
-void	*calloc(size_t nmemb, size_t size)
+void	*ft_calloc(size_t nmemb, size_t size)
 {
 	void	*ptr;
 	int		finallen;

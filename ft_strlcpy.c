@@ -21,6 +21,8 @@ int	ft_strlcpy(char *dest, const char *src, size_t size)
 	i = 0;
 	while (src[lensrc] != '\0')
 		lensrc++;
+	if (size == 0)
+		return (lensrc);
 	while (i < size - 1 && src[i] != '\0')
 	{
 		dest[i] = src[i];
@@ -37,9 +39,9 @@ int	ft_strlcpy(char *dest, const char *src, size_t size)
 int	main(void)
 {
 	char src[] = "Hello, World!";
-	char dst[6];
+	char dst[0];
 
-	int size = ft_strlcpy(dst, src, 6);
+	int size = ft_strlcpy(dst, src, 0);
 
 	// Afficher le résultat
 	printf("Chaine copiee : %s\n", dst);

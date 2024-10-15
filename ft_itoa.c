@@ -6,7 +6,7 @@
 /*   By: tle-dref <tle-dref@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/10/15 12:30:12 by tle-dref          #+#    #+#             */
-/*   Updated: 2024/10/15 12:31:22 by tle-dref         ###   ########.fr       */
+/*   Updated: 2024/10/15 22:46:37 by tle-dref         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,7 +24,7 @@ static int	ft_len(int n)
 	}
 	if (n == 0)
 		return (1);
-	while (n >= 10)
+	while (n > 0)
 	{
 		n /= 10;
 		len ++;
@@ -38,26 +38,26 @@ char	*ft_itoa(int n)
 	char	*res;
 	int		len;
 
+	if (n == -2147483648)
+		return (ft_strdup("-2147483648"));
 	len = ft_len(n);
-	i = len;
 	res = malloc(len * sizeof(char) + 1);
 	if (!res)
 		return (NULL);
+	res[len] = '\0';
+	i = len - 1;
 	if (n == 0)
-		return ("0");
+		res[0] = '0';
 	if (n < 0)
 	{
 		res[0] = '-';
 		n = -n;
 	}
-	if (n == -2147483648)
-		return ("-2147483648");
-	while (n != 0)
+	while (n > 0)
 	{
 		res[i--] = (n % 10) + '0';
 		n /= 10;
 	}
-	res[len + 1] = '\0';
 	return (res);
 }
 /*

@@ -6,7 +6,7 @@
 /*   By: tle-dref <tle-dref@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/10/14 21:05:45 by tle-dref          #+#    #+#             */
-/*   Updated: 2024/10/14 23:29:31 by tle-dref         ###   ########.fr       */
+/*   Updated: 2024/10/15 23:01:32 by tle-dref         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,7 +20,7 @@ static char	*boucle(size_t lens1, size_t lens2, const char *s1, const char *s2)
 
 	i = 0;
 	j = 0;
-	res = malloc((lens1 + lens2) * sizeof(char));
+	res = malloc((lens1 + lens2 + 1) * sizeof(char));
 	if (!res)
 		return (NULL);
 	while (i < lens1)
@@ -44,6 +44,8 @@ char	*ft_strjoin(char const *s1, char const *s2)
 	size_t	lens2;
 	char	*res;
 
+	if (!s1 && !s2)
+		return (NULL);
 	lens1 = ft_strlen((char *)s1);
 	lens2 = ft_strlen((char *)s2);
 	res = boucle(lens1, lens2, s1, s2);
