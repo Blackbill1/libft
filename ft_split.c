@@ -12,7 +12,7 @@
 
 #include "libft.h"
 
-static int	ft_countWord(char const *s, char c)
+static int ft_countWord(char const *s, char c)
 {
 	int i;
 	int count;
@@ -21,49 +21,74 @@ static int	ft_countWord(char const *s, char c)
 	count = 0;
 	while (s[i] != '\0')
 	{
-		if(s[i] == c && (s[i + 1] != c || s[i + 1] != '\0'));
-			count++;	
+		if (s[i] != c && (s[i + 1] == c || s[i + 1] == '\0'))
+			count++;
 		i++;
 	}
 	return (count);
 }
 static char *fillChar(const char *str, int start, int end)
 {
+	char *res;
 	int i;
-	char *res = malloc(end - start + 1);
+
+	i = 0;
+	res = malloc(end - start + 1);
 	if (!res)
 		return (NULL);
-	while(i < end)
+	while (i < end - start)
 	{
-		res[i] = str[start];
+		res[i] = str[start + i];
 		i++;
-		start++;
 	}
 	res[i] = '\0';
 	return (res);
 }
-char	**ft_split(char const *s, char c)
+
+char **ft_split(char const *s, char c)
 {
+	char **mod;
 	char **res;
 	int i;
-	int k;
-	int j;
+	int index;
 
-	k = 0;
-	j = 0;
+	index = 0;
 	i = 0;
-	res = malloc(ft_countWord(s,c) * sizeof(char *));
+	res = malloc((ft_countWord(s, c) + 1) * sizeof(char *));
+	mod = res;
 	if (!res)
 		return (NULL);
 	while (s[i] != '\0')
 	{
 		if (s[i] == c)
 		{
-			fillChar(s, j, i);
-			k++;
-			j = i + 1;
+			if (i != index)
+				*res++ = fillChar(s, index, i);
+			index = i + 1;
 		}
 		i++;
 	}
-	return (res);
+	if (i != index)
+		*res++ = fillChar(s, index, i);
+	*res = NULL;
+	return (mod);
 }
+/*
+#include <stdio.h>
+int main(void)
+{
+	int i;
+	char **s;
+	char c;
+
+	c = 'l';
+	s = ft_split("      j'adore les    oisea u  x", c);
+	i = 0;
+	while (s[i])
+	{
+		printf("%s|", s[i]);
+		i++;
+	}
+	return (0);
+}
+*/
