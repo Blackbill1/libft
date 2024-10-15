@@ -6,7 +6,7 @@
 #    By: tle-dref <tle-dref@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2024/10/15 14:12:24 by tle-dref          #+#    #+#              #
-#    Updated: 2024/10/15 14:24:33 by tle-dref         ###   ########.fr        #
+#    Updated: 2024/10/15 14:38:37 by tle-dref         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -61,16 +61,18 @@ NAME = libft.a
 all: $(NAME)
 
 $(NAME): $(OBJ)
-	ar rcs $@ $(OBJ)
+	@ar rcs $@ $(OBJ)
+	@echo "✓ Compilation des fichiers source et creation de la bibliotheque ✓"
 
 %.o: %.c $(HEADER)
-	$(CC) $(CFLAGS) -c $< -o $@
+	@$(CC) $(CFLAGS) -c $< -o $@
 
 clean:
-	rm -f $(OBJ)
+	@rm -f $(OBJ)
+	@echo "✓ suppression des objets ✓"
 
 fclean: clean
-	rm -f $(NAME)
+	@rm -f $(NAME)
 
 re: fclean all
 
