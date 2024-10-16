@@ -6,7 +6,7 @@
 #    By: tle-dref <tle-dref@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2024/10/15 14:12:24 by tle-dref          #+#    #+#              #
-#    Updated: 2024/10/16 02:56:49 by tle-dref         ###   ########.fr        #
+#    Updated: 2024/10/16 04:24:25 by tle-dref         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -78,7 +78,7 @@ $(NAME): $(OBJ)
 	@$(CC) $(CFLAGS) -c $< -o $@
 
 clean:
-	@rm -f $(OBJ)
+	@rm -f $(OBJ) $(OBJBONUS)
 	@echo "✓ suppression des objets ✓"
 
 fclean: clean
