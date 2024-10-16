@@ -6,7 +6,7 @@
 #    By: tle-dref <tle-dref@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2024/10/15 14:12:24 by tle-dref          #+#    #+#              #
-#    Updated: 2024/10/15 18:05:50 by tle-dref         ###   ########.fr        #
+#    Updated: 2024/10/16 02:56:49 by tle-dref         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -50,13 +50,23 @@ SRC = $(SRCDIR)/ft_atoi.c \
 		$(SRCDIR)/ft_tolower.c \
 		$(SRCDIR)/ft_toupper.c \
 
+SRCBONUS = $(SRCDIR)/ft_lstnew_bonus.c \
+			$(SRCDIR)/ft_lstadd_front_bonus.c \
+			$(SRCDIR)/ft_lstsize_bonus.c \
+			$(SRCDIR)/ft_lstlast_bonus.c \
+			$(SRCDIR)/ft_lstadd_back_bonus.c \
+			$(SRCDIR)/ft_lstdelone_bonus.c \
+			$(SRCDIR)/ft_lstclear_bonus.c \
+			$(SRCDIR)/ft_lstiter_bonus.c \
+			$(SRCDIR)/ft_lstmap_bonus.c \
+
 OBJ = $(SRC:.c=.o)
+
+OBJBONUS = $(SRCBONUS:.c=.o)
 
 HEADER = $(INCDIR)/libft.h
 
-
 NAME = libft.a
-
 
 all: $(NAME)
 
@@ -76,4 +86,8 @@ fclean: clean
 
 re: fclean all
 
-.PHONY: all clean fclean re
+bonus: $(NAME) $(OBJBONUS)
+	@echo "✔Compilation des fichiers bonus✔"
+	@ar -rs $(NAME) $(OBJBONUS)
+
+.PHONY: all clean fclean re bonus
